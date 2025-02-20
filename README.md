@@ -1,8 +1,7 @@
 # 🐍 Snake Game: Array vs Cola (Queue)
 
-Este repositorio contiene dos implementaciones del clásico juego de la serpiente (Snake Game) en JavaScript.  
+Este repositorio contiene dos implementaciones del clásico juego de la serpiente (Snake Game) en JavaScript.
 Una versión utiliza un **array** para manejar la serpiente, mientras que la otra utiliza una **cola (Queue)**.  
-
 A continuación, se describen las diferencias clave entre ambas implementaciones.
 
 ---
@@ -27,12 +26,28 @@ A continuación, se describen las diferencias clave entre ambas implementaciones
 - Se elimina el último segmento con `pop()` y se añade la nueva cabeza con `unshift()`.
 - La detección de colisiones se realiza directamente sobre el array.
 
-**Ejemplo de código:**
-```js
-let snake = [{ x: 5, y: 5 }, { x: 6, y: 5 }, { x: 7, y: 5 }];
+---
 
-// Mover la serpiente
-snake.pop(); // Elimina la cola
-snake.unshift({ x: 4, y: 5 }); // Añade nueva cabeza
+#### 🔵 **Cola (Queue)**
+- La serpiente se maneja como una **cola**.
+- Se elimina el primer segmento con `dequeue()` y se añade la nueva cabeza con `enqueue()`.
+- La detección de colisiones se realiza sobre una copia del array interno.
 
-console.log(snake);
+---
+
+## 📌 Comparación de eficiencia
+
+| Funcionamiento     | Array | Cola (Queue) |
+|--------------------|-----------------------------|---------------------------------|
+| **Movimiento** | `unshift(newHead)` para agregar la nueva cabeza y `pop()` para eliminar la cola. | `enqueue(newHead)` para agregar la nueva cabeza y `dequeue()` para eliminar la cola. |
+| **Acceso a los elementos** | Se accede a los segmentos de la serpiente con índices (`snake[i]`). | Se accede a los segmentos con `getItems()`. |
+| **Encapsulación** | La serpiente es un simple array, con toda la lógica en la misma función. | La serpiente es una instancia de `Queue`, encapsulando su lógica. |
+| **Eficiencia** | `unshift()` es menos eficiente porque reordena el array. | `enqueue()` y `dequeue()` son más eficientes en una estructura de cola. |
+
+---
+
+## 🎯 **Conclusión**
+- La implementación con **array** es más simple y directa, pero menos eficiente.
+- La implementación con **cola (Queue)** encapsula mejor la estructura de datos y separa responsabilidades, haciendo el código más organizado y escalable.
+- Si se quiere mejorar la eficiencia y la mantenibilidad del código, la implementación con `Queue` es la mejor opción. 🚀
+
