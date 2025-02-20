@@ -9,16 +9,14 @@ Manipulación	Métodos nativos (pop(), unshift()).	Métodos personalizados (enqu
 Encapsulación	No encapsula la lógica.	Encapsula la lógica en una clase.
 Acceso a los datos	Directo (índices del array).	A través de métodos (getItems()).
 2. Funcionamiento
-Array:
-
+Array
 La serpiente se maneja como un array.
 
 Se elimina el último segmento con pop() y se añade la nueva cabeza con unshift().
 
 La detección de colisiones se realiza directamente sobre el array.
 
-Cola (Queue):
-
+Cola (Queue)
 La serpiente se maneja como una cola.
 
 Se elimina el primer segmento con dequeue() y se añade la nueva cabeza con enqueue().
